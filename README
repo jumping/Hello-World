@@ -1,3 +1,6 @@
 This is a test project.
 
 The mobline.py will pick up a special field from logs.txt.
+The upload_images.php is a example to upload a image.
+These fan*.c are examples from communication between twitters.
+The BinaryCookieReader.py could read the cookie file of Safari, which location is "~/Library/Cookies/Cookies.binarycookies " on my OS X 10.8.2 .

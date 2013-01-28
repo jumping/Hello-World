@@ -92,8 +92,14 @@ for page in pages:
 		endofcookie=cookie.read(8)                          #end of cookie
 		                        
 		expiry_date_epoch= unpack('<d',cookie.read(8))[0]+978307200          #Expiry date is in Mac epoch format: Starts from 1/Jan/2001
-		expiry_date=strftime("%a, %d %b %Y ",gmtime(expiry_date_epoch))[:-1] #978307200 is unix epoch of  1/Jan/2001 //[:-1] strips the last space
-				
+
+        #some Cookie's expire time is 1970-1-1
+        try:
+		    expiry_date=strftime("%a, %d %b %Y ",gmtime(expiry_date_epoch))[:-1] #978307200 is unix epoch of  1/Jan/2001 //[:-1] strips the last space
+        except:
+	        #print expiry_date_epoch
+	        expiry_date=strftime("%a, %d %b %Y ",gmtime(expiry_date_epoch/1000000))[:-1]
+		    
 		create_date_epoch=unpack('<d',cookie.read(8))[0]+978307200           #Cookies creation time
 		create_date=strftime("%a, %d %b %Y ",gmtime(create_date_epoch))[:-1]
 		#print create_date
