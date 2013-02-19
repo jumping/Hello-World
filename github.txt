@@ -1,0 +1,27 @@
+1. Push your newly-merged branch back to GitHub
+//https://help.github.com/articles/using-pull-requests
+git push origin master
+
+2. merge from original master, the local repos forked from.
+//https://help.github.com/articles/syncing-a-fork
+
+Setup
+git remote -v
+# List the current remotes
+git remote add upstream https://github.com/otheruser/repo.git
+# Set a new remote
+git remote -v
+# Verify new remote
+
+Fetching
+git fetch upstream
+# Grab the upstream remote's branches
+
+Merging
+git checkout master
+# Check out our local master branch
+# Switched to branch 'master'
+git merge upstream/master
+# Merge upstream's master into our own
+
+3. 
